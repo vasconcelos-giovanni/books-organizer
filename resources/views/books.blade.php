@@ -25,22 +25,24 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-around flex-wrap gap-4">
 
-                <div class="col-3 book d-flex flex-column">
-                    <div class="book-item d-flex align-items-start">
-                        <input type="checkbox" class="form-check-input me-1 delete-checkbox">
-                        <img class="rounded"
-                            src="https://m.media-amazon.com/images/I/612kTfFHHBL._AC_UY327_FMwebp_QL65_.jpg"
-                            alt="Book Cover" width="135" height="220">
+                @foreach ($books as $book)
+                    <div class="col-3 book d-flex flex-column">
+                        <div class="book-item d-flex align-items-start">
+                            <input type="checkbox" class="form-check-input me-1 delete-checkbox">
+                            <img class="rounded"
+                                src="https://m.media-amazon.com/images/I/612kTfFHHBL._AC_UY327_FMwebp_QL65_.jpg"
+                                alt="Book Cover" width="135" height="220">
+                        </div>
+                        <div>
+                            <ul class="book-details list-unstyled mb-0 ms-3">
+                                <li><strong>SKU:</strong> {{ $book->sku }}</li>
+                                <li><strong>Name:</strong> {{ $book->name }}</li>
+                                <li><strong>Price:</strong> R${{ $book->price }}</li>
+                                <li><strong>Weight:</strong> {{ $book->weight }}g</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <ul class="book-details list-unstyled mb-0 ms-3">
-                            <li><strong>SKU:</strong> SKU123456</li>
-                            <li><strong>Name:</strong> Book Title</li>
-                            <li><strong>Price:</strong> $19.99</li>
-                            <li><strong>Weight:</strong> 2 lbs</li>
-                        </ul>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
