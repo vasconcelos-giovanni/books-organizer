@@ -29,9 +29,9 @@
                     <div class="col-3 book d-flex flex-column">
                         <div class="book-item d-flex align-items-start">
                             <input type="checkbox" class="form-check-input me-1 delete-checkbox">
-                            <img class="rounded"
-                                src="https://m.media-amazon.com/images/I/612kTfFHHBL._AC_UY327_FMwebp_QL65_.jpg"
-                                alt="Book Cover" width="135" height="220">
+                            <a class="text-reset" href="{{ route('books.edit', $book) }}"><img class="rounded"
+                                    src="https://m.media-amazon.com/images/I/612kTfFHHBL._AC_UY327_FMwebp_QL65_.jpg"
+                                    alt="Book Cover" width="135" height="220" /></a>
                         </div>
                         <div>
                             <ul class="book-details list-unstyled mb-0 ms-3">
