@@ -21,4 +21,6 @@ Route::get('/', function () {
 Route::get('/test', [BookController::class, 'test']);
 
 Route::resource('books', BookController::class)
-    ->except('show');
+    ->except('show', 'destroy');
+Route::post('books/destroy', [BookController::class, 'destroy'])
+    ->name('books.destroy');

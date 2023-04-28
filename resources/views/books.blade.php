@@ -9,6 +9,7 @@
     <script defer="true" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+    <script src="{{ mix('/resources/js/app.js') }}" type="module" defer="true"></script>
 </head>
 
 <body>
@@ -21,16 +22,18 @@
                 <button type="button" class="btn btn-primary"><a href="{{ route('books.create') }}" class="text-reset"
                         style="text-decoration:none;">Adicionar
                         livro</a></button>
-                <button type="button" class="btn btn-danger">Excluir selecionados</button>
+                <button type="button" class="btn btn-danger" id="mass-delete-btn">Excluir selecionados</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 d-flex justify-content-around flex-wrap gap-4">
-
+            <form method="POST" action="{{ route('books.destroy') }}"
+                class="col-12 d-flex justify-content-around flex-wrap gap-4" id="delete-books-form">
+                @csrf
                 @foreach ($books as $book)
                     <div class="col-3 book d-flex flex-column">
                         <div class="book-item d-flex align-items-start">
-                            <input type="checkbox" class="form-check-input me-1 delete-checkbox">
+                            <input type="checkbox" class="delete-checkbox form-check-input me-1" name="ids[]"
+                                value="{{ $book->id }}" />
                             <a class="text-reset" href="{{ route('books.edit', $book) }}"><img class="rounded"
                                     src="https://m.media-amazon.com/images/I/612kTfFHHBL._AC_UY327_FMwebp_QL65_.jpg"
                                     alt="Book Cover" width="135" height="220" /></a>
@@ -45,7 +48,7 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
+            </form>
         </div>
     </div>
 

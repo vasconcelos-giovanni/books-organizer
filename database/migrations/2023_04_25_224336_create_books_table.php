@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->decimal('weight', 5, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

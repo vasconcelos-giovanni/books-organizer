@@ -66,10 +66,14 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy(Request $request)
     {
-        //
+        $booksIds = $request->ids;
+        Book::whereIn('id', $booksIds)->delete();
+
+        return redirect()->route('books.index');
     }
+
 
     public function test()
     {
