@@ -32,33 +32,32 @@
                 @if (isset($book))
                     @method('PUT')
                 @endif
-                {{-- @method() --}}
                 <div class="row mb-3">
                     <label for="inputSKU" class="col-2 col-form-label"><strong>SKU</strong></label>
                     <div class="col-6">
                         <input required="true" type="text" class="form-control" id="inputSKU" name="sku"
-                            value="SKU777777">
+                            value="{{ isset($book) ? $book->sku : '' }}">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputName" class="col-2 col-form-label"><strong>Nome</strong></label>
                     <div class="col-6">
                         <input required="true" type="text" class="form-control" id="inputName" name="name"
-                            value="The Republic">
+                            value="{{ isset($book) ? $book->name : '' }}">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputPrice" class="col-2 col-form-label"><strong>Preço (R$)</strong></label>
                     <div class="col-6">
                         <input required="true" type="number" step="0.01" class="form-control" id="inputPrice"
-                            name="price" value="80.00">
+                            name="price" value="{{ isset($book) ? $book->price : '' }}">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputWeight" class="col-2 col-form-label"><strong>Peso (g)</strong></label>
                     <div class="col-6">
                         <input required="true" type="number" step="0.01" class="form-control" id="inputWeight"
-                            name="weight" value="124.00">
+                            name="weight" value="{{ isset($book) ? $book->weight : '' }}">
                     </div>
                 </div>
                 <div class="row mb-3">
