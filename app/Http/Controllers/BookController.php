@@ -46,12 +46,11 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        $bookModel = Book::find($book);
-        $bookJson = new ApiBookResource($bookModel);
-
+        $apiBook = new ApiBookResource($book);
+        $bookData = $apiBook->toArray(request());
         return view(
             'book',
-            [$bookJson]
+            ['book' => (object) $bookData]
         );
     }
 
@@ -60,7 +59,6 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
     }
 
     /**
@@ -71,13 +69,11 @@ class BookController extends Controller
         //
     }
 
-    public function getBook($book)
-    {
-    }
-
     public function test()
     {
+        // $book = Book::find(1);
         $book = Book::find(1);
+        // dd($books[0]->name);
         dd(new ApiBookResource($book));
         // dd($book);
     }
