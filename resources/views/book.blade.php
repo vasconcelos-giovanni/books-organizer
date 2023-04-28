@@ -21,7 +21,8 @@
             </div>
             <div class="col-6 d-flex justify-content-end gap-2">
                 <button type="submit" class="btn btn-primary" id="save-btn">Salvar</button>
-                <button type="button" class="btn btn-danger" id="cancel-btn">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="cancel-btn"><a href="{{ route('books.index') }}"
+                        class="text-reset" style="text-decoration:none;">Cancelar</button></a>
             </div>
         </div>
         <div class="col-22">
