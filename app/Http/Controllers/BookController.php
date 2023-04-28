@@ -18,7 +18,6 @@ class BookController extends Controller
 
         return view(
             'books',
-            // ['books' => $books]
             ['books' => $booksCollection]
         );
     }
@@ -59,6 +58,9 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
+        $book->update($request->all());
+
+        return redirect()->route('books.index');
     }
 
     /**

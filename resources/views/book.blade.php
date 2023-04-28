@@ -26,8 +26,8 @@
             </div>
         </div>
         <div class="col-22">
-            <form method="{{ isset($book) ? 'PUT' : 'POST' }}"
-                action="{{ isset($book) ? route('books.update', $book->id) : route('books.store') }}" id="book-form">
+            <form method="POST" action="{{ isset($book) ? route('books.update', $book->id) : route('books.store') }}"
+                id="book-form">
                 @csrf
                 @if (isset($book))
                     @method('PUT')
