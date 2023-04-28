@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row p-2">
             <div class="col-6 d-flex justify-content-start">
-                <h1>Adicionar livro</h1>
+                <h1>{{ isset($book) ? 'Editar livro' : 'Adicionar livro' }}</h1>
             </div>
             <div class="col-6 d-flex justify-content-end gap-2">
                 <button type="submit" class="btn btn-primary" id="save-btn">Salvar</button>
