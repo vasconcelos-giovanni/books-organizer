@@ -18,7 +18,9 @@
                 <h1>Livros</h1>
             </div>
             <div class="col-6 d-flex justify-content-end gap-2">
-                <button type="button" class="btn btn-primary">Adicionar livro</button>
+                <button type="button" class="btn btn-primary"><a href="{{ route('books.create') }}" class="text-reset"
+                        style="text-decoration:none;">Adicionar
+                        livro</a></button>
                 <button type="button" class="btn btn-danger">Excluir selecionados</button>
             </div>
         </div>
