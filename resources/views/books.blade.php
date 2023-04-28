@@ -15,11 +15,11 @@
     <div class="container">
         <div class="row p-2">
             <div class="col-6 d-flex justify-content-start">
-                <h1>Books</h1>
+                <h1>Livros</h1>
             </div>
             <div class="col-6 d-flex justify-content-end gap-2">
-                <button type="button" class="btn btn-primary">Add book</button>
-                <button type="button" class="btn btn-danger">Mass delete</button>
+                <button type="button" class="btn btn-primary">Adicionar livro</button>
+                <button type="button" class="btn btn-danger">Excluir selecionados</button>
             </div>
         </div>
         <div class="row">
@@ -36,9 +36,9 @@
                         <div>
                             <ul class="book-details list-unstyled mb-0 ms-3">
                                 <li><strong>SKU:</strong> {{ $book->sku }}</li>
-                                <li><strong>Name:</strong> {{ $book->name }}</li>
-                                <li><strong>Price:</strong> R${{ $book->price }}</li>
-                                <li><strong>Weight:</strong> {{ $book->weight }}g</li>
+                                <li><strong>Nome:</strong> {{ $book->name }}</li>
+                                <li><strong>Preço:</strong> R${{ $book->price }}</li>
+                                <li><strong>Peso:</strong> {{ $book->weight }}g</li>
                             </ul>
                         </div>
                     </div>
