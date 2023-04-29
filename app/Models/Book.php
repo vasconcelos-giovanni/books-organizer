@@ -12,9 +12,10 @@ class Book extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'sku',
+        'cover',
         'name',
         'price',
-        'weight'
+        'sku',
+        'weight',
     ];
 }
