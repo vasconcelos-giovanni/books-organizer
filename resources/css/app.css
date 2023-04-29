@@ -1,4 +1,3 @@
-.delete-checkbox {
-    position: absolute;
-    /* top: 10px; */
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
