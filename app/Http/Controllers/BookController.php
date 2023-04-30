@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ApiBookResource;
 use App\Models\Book;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $user_id = auth()->id();
+        $books = Book::where('user_id', $user_id)->get();
         $booksCollection = ApiBookResource::collection($books);
 
         return view(
@@ -38,14 +40,21 @@ class BookController extends Controller
     {
         // $book = Book::create($request->all());
         DB::transaction(function () use ($request) {
-            $book = new Book;
-            $book->sku = $request->sku;
-            $book->name = $request->name;
-            $book->price = $request->price;
-            $book->weight = $request->weight;
-            $book->cover = $this->uploadCover($request->cover);
+            $user = auth()->user();
 
-            $book->save();
+            $bookData = [
+                'user_id' => $user->id,
+                'sku' => $request->sku,
+                'name' => $request->name,
+                'price' => $request->price,
+                'weight' => $request->weight,
+            ];
+
+            if ($request->hasFile('cover')) {
+                $bookData['cover'] = $this->uploadCover($request->file('cover'));
+            }
+
+            Book::create($bookData);
         });
 
         return redirect()->route('books.index');
@@ -69,7 +78,23 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        $book->update($request->all());
+        DB::transaction(function () use ($request, $book) {
+            $user = auth()->user();
+
+            $bookUpdatedData = [
+                'user_id' => $user->id,
+                'sku' => $request->sku,
+                'name' => $request->name,
+                'price' => $request->price,
+                'weight' => $request->weight,
+            ];
+
+            if ($request->hasFile('cover')) {
+                $bookUpdatedData['cover'] = $this->uploadCover($request->file('cover'));
+            }
+
+            $book->update($bookUpdatedData);
+        });
 
         return redirect()->route('books.index');
     }
@@ -87,16 +112,14 @@ class BookController extends Controller
 
     public function uploadCover($cover)
     {
-        if ($cover) {
-            $coverName = time() . '.' . $cover->getClientOriginalExtension();
+        $coverName = time() . '.' . $cover->getClientOriginalExtension();
 
-            try {
-                $cover->storeAs('public/uploads', $coverName);
+        try {
+            $cover->storeAs('public/uploads', $coverName);
 
-                return $coverName;
-            } catch (\Throwable $error) {
-                dd($error);
-            }
+            return $coverName;
+        } catch (\Throwable $error) {
+            dd($error);
         }
     }
 
