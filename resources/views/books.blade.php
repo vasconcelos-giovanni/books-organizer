@@ -34,8 +34,9 @@
                         <div class="book-item d-flex align-items-start">
                             <input type="checkbox" class="delete-checkbox form-check-input me-1" name="ids[]"
                                 value="{{ $book->id }}" />
-                            <a class="text-reset" href="{{ route('books.edit', $book) }}"><img class="rounded"
-                                    src="https://m.media-amazon.com/images/I/612kTfFHHBL._AC_UY327_FMwebp_QL65_.jpg"
+                            <a class="text-reset" href="{{ route('books.edit', $book) }}"><img
+                                    class="rounded img-thumbnail"
+                                    src="{{ $book->cover != null ? asset('storage/uploads/' . $book->cover) : 'https://via.placeholder.com/135x220' }}"
                                     alt="Book Cover" width="135" height="220" /></a>
                         </div>
                         <div>
