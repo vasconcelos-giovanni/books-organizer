@@ -27,7 +27,7 @@
         </div>
         <div class="col-22">
             <form method="POST" action="{{ isset($book) ? route('books.update', $book->id) : route('books.store') }}"
-                id="book-form">
+                id="book-form" enctype="multipart/form-data">
                 @csrf
                 @if (isset($book))
                     @method('PUT')
@@ -66,13 +66,17 @@
                     </div>
                     <div class="col-6">
                         <div class="input-group">
-                            <label class="input-group-text" for="inputCover">Clique para inserir capa</strong></label>
-                            <input type="file" class="form-control" id="inputCover" accept="image/*"
-                                style="display:none;">
+                            <label class="input-group-text"
+                                for="inputCover">{{ $book->cover != null ? 'Clique para trocar capa' : 'Clique para inserir capa' }}</strong></label>
+                            <input type="file" class="form-control-file" id="inputCover" accept="image/*"
+                                style="display:none;" name="cover">
                         </div>
                         {{-- <div class="mt-2">
                             <img src="https://via.placeholder.com/135x220" class="img-thumbnail" alt="Cover">
                         </div> --}}
+                        <img class="mt-2 rounded img-thumbnail"
+                            src="{{ $book->cover != null ? asset('storage/uploads/' . $book->cover) : 'https://via.placeholder.com/135x220' }}"
+                            alt="Book Cover" width="135" height="220" />
                     </div>
                 </div>
             </form>
