@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ApiBookResource;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -35,7 +36,17 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        Book::create($request->all());
+        // $book = Book::create($request->all());
+        DB::transaction(function () use ($request) {
+            $book = new Book;
+            $book->sku = $request->sku;
+            $book->name = $request->name;
+            $book->price = $request->price;
+            $book->weight = $request->weight;
+            $book->cover = $this->uploadCover($request->cover);
+
+            $book->save();
+        });
 
         return redirect()->route('books.index');
     }
@@ -64,7 +75,7 @@ class BookController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resources from storage.
      */
     public function destroy(Request $request)
     {
@@ -74,13 +85,27 @@ class BookController extends Controller
         return redirect()->route('books.index');
     }
 
-
-    public function test()
+    public function uploadCover($cover)
     {
-        // $book = Book::find(1);
-        $book = Book::find(1);
-        // dd($books[0]->name);
-        dd(new ApiBookResource($book));
-        // dd($book);
+        if ($cover) {
+            $coverName = time() . '.' . $cover->getClientOriginalExtension();
+
+            try {
+                $cover->storeAs('public/uploads', $coverName);
+
+                return $coverName;
+            } catch (\Throwable $error) {
+                dd($error);
+            }
+        }
     }
+
+    // public function test()
+    // {
+    //     // $book = Book::find(1);
+    //     $book = Book::find(1);
+    //     // dd($books[0]->name);
+    //     dd(new ApiBookResource($book));
+    //     // dd($book);
+
 }
