@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('cover')->nullable();
             $table->string('name');
             $table->decimal('price', 10, 2);
