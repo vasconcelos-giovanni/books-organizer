@@ -66,17 +66,18 @@
                     </div>
                     <div class="col-6">
                         <div class="input-group">
-                            <label class="input-group-text"
-                                for="inputCover">{{ $book->cover != null ? 'Clique para trocar capa' : 'Clique para inserir capa' }}</strong></label>
+                            <label class="input-group-text" for="inputCover">Clique para inserir capa</strong></label>
+                            {{-- <label class="input-group-text"
+                                for="inputCover">{{ isset($book) || $book->cover != null ? 'Clique para trocar capa' : 'Clique para inserir capa' }}</strong></label> --}}
                             <input type="file" class="form-control-file" id="inputCover" accept="image/*"
                                 style="display:none;" name="cover">
                         </div>
                         {{-- <div class="mt-2">
                             <img src="https://via.placeholder.com/135x220" class="img-thumbnail" alt="Cover">
                         </div> --}}
-                        <img class="mt-2 rounded img-thumbnail"
-                            src="{{ $book->cover != null ? asset('storage/uploads/' . $book->cover) : 'https://via.placeholder.com/135x220' }}"
-                            alt="Book Cover" width="135" height="220" />
+                        {{-- <img class="mt-2 rounded img-thumbnail"
+                            src="{{ isset($book) ? $book->cover != null ? asset('storage/uploads/' . $book->cover) : 'https://via.placeholder.com/135x220' }}"
+                            alt="Book Cover" width="135" height="220" /> --}}
                     </div>
                 </div>
             </form>
