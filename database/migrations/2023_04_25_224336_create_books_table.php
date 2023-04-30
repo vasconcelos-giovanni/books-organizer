@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('sku');
+            $table->string('cover')->nullable();
             $table->string('name');
             $table->decimal('price', 10, 2);
-            $table->decimal('weight', 5, 2);
+            $table->string('sku');
+            $table->integer('weight');
             $table->timestamps();
             $table->softDeletes();
         });
