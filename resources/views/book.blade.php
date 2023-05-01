@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __(isset($book) ? 'Editar livro' : 'Adicionar livro') }}
+            {{ __(isset($book) ? 'Edit book' : 'Add book') }}
         </h2>
     </x-slot>
 
@@ -12,10 +12,10 @@
                     <div class="container">
                         <div class="row p-2">
                             <div class="col-12 d-flex justify-content-end gap-2">
-                                <button type="submit" class="btn btn-outline-primary" id="save-btn">Salvar</button>
+                                <button type="submit" class="btn btn-outline-primary" id="save-btn">Save</button>
                                 <button type="button" class="btn btn-outline-danger" id="cancel-btn"><a
                                         href="{{ route('books.index') }}" class="text-reset"
-                                        style="text-decoration:none;">Cancelar</a></button>
+                                        style="text-decoration:none;">Cancel</a></button>
                             </div>
                         </div>
                         <div class="col-22">
@@ -34,15 +34,15 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputName" class="col-2 col-form-label"><strong>Nome</strong></label>
+                                    <label for="inputName" class="col-2 col-form-label"><strong>Name</strong></label>
                                     <div class="col-6">
                                         <input required="true" type="text" class="form-control" id="inputName"
                                             name="name" value="{{ isset($book) ? $book->name : '' }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputPrice" class="col-2 col-form-label"><strong>Preço
-                                            (R$)</strong></label>
+                                    <label for="inputPrice" class="col-2 col-form-label"><strong>Price
+                                            ($)</strong></label>
                                     <div class="col-6">
                                         <input required="true" type="number" step="0.01" class="form-control"
                                             id="inputPrice" name="price"
@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputWeight" class="col-2 col-form-label"><strong>Peso
+                                    <label for="inputWeight" class="col-2 col-form-label"><strong>Weight
                                             (g)</strong></label>
                                     <div class="col-6">
                                         <input required="true" type="number" class="form-control" id="inputWeight"
@@ -60,12 +60,12 @@
                                 <div class="row mb-3">
                                     <div class="col-2">
                                         <label for="inputCover"
-                                            class="col-2 col-form-label"><strong>Capa</strong></label>
+                                            class="col-2 col-form-label"><strong>Cover</strong></label>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group">
-                                            <label class="input-group-text" for="inputCover">Clique para inserir
-                                                capa</strong></label>
+                                            <label class="input-group-text" for="inputCover">Upload cover
+                                                here</strong></label>
                                             {{-- <label class="input-group-text"
                                 for="inputCover">{{ isset($book) || $book->cover != null ? 'Clique para trocar capa' : 'Clique para inserir capa' }}</strong></label> --}}
                                             <input type="file" class="form-control-file" id="inputCover"

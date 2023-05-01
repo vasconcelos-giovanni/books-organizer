@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Livros') }}
+            {{ __('Books') }}
         </h2>
     </x-slot>
 
@@ -15,10 +15,9 @@
                             <div class="col-12 d-flex justify-content-end gap-2">
                                 <button type="button" class="btn btn-outline-primary"><a
                                         href="{{ route('books.create') }}" class="text-reset"
-                                        style="text-decoration:none;">Adicionar
-                                        livro</a></button>
-                                <button type="button" class="btn btn-outline-danger" id="mass-delete-btn">Excluir
-                                    selecionados</button>
+                                        style="text-decoration:none;">Add book</a></button>
+                                <button type="button" class="btn btn-outline-danger" id="mass-delete-btn">Mass
+                                    delete</button>
                             </div>
                         </div>
                         <div class="row">
@@ -38,9 +37,9 @@
                                         <div>
                                             <ul class="book-details list-unstyled mb-0 ms-3">
                                                 <li><strong>SKU:</strong> {{ $book->sku }}</li>
-                                                <li><strong>Nome:</strong> {{ $book->name }}</li>
-                                                <li><strong>Preço:</strong> R${{ $book->price }}</li>
-                                                <li><strong>Peso:</strong> {{ $book->weight }}g</li>
+                                                <li><strong>Name:</strong> {{ $book->name }}</li>
+                                                <li><strong>Price:</strong> R${{ $book->price }}</li>
+                                                <li><strong>Weight:</strong> {{ $book->weight }}g</li>
                                             </ul>
                                         </div>
                                     </div>
