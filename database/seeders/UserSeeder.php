@@ -15,9 +15,9 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $adminUser = [
-            'name' => 'Admin',
-            'email' => 'giovannivmedeiros@gmail.com',
-            'password' => Hash::make('Laravel098')
+            'name' => 'John Doe',
+            'email' => 'example@email.com',
+            'password' => Hash::make('12345678')
         ];
 
         User::Factory()
