@@ -16,29 +16,34 @@ class BookSeeder extends Seeder
     {
         DB::transaction(function () {
             $predefinedValues = [
+                // Image by <a href="https://www.freepik.com/free-vector/bike-guy-wattpad-book-cover_28596242.htm#query=book%20cover&position=4&from_view=keyword&track=ais">Freepik</a>
                 [
-                    'name' => '1984',
-                    'cover' => '1984.jfif',
+                    'name' => 'The Bike Guy',
+                    'cover' => '1.svg',
                     'user_id' => 1,
                 ],
+                // Image by <a href="https://www.freepik.com/free-vector/abstract-business-book-cover-template_10882508.htm#query=book%20cover&position=28&from_view=keyword&track=ais">Freepik</a>
                 [
-                    'name' => 'Harry Potter and the Philosopher\'s Stone',
-                    'cover' => 'harry_potter_and_the_philosophers_stone.jfif',
+                    'name' => 'We Are Business',
+                    'cover' => '2.svg',
                     'user_id' => 1,
                 ],
+                // Image by <a href="https://www.freepik.com/free-vector/abstract-elegant-winter-book-cover_11734660.htm#query=book%20cover&position=3&from_view=keyword&track=ais">Freepik</a>
                 [
-                    'name' => 'Lord of the Flies',
-                    'cover' => 'lord_of_the_flies.jfif',
+                    'name' => 'Different Winter',
+                    'cover' => '3.svg',
                     'user_id' => 1,
                 ],
+                // Image by <a href="https://www.freepik.com/free-vector/atomic-love-wattpad-book-cover_21741512.htm#query=book%20cover&position=28&from_view=keyword&track=ais">Freepik</a>
                 [
-                    'name' => 'Resident Evil: The Umbrella Conspiracy',
-                    'cover' => 'resident_evil_the_umbrella_conspiracy.jpg',
+                    'name' => 'Atomic Love',
+                    'cover' => '4.svg',
                     'user_id' => 1,
                 ],
+                // Image by <a href="https://www.freepik.com/free-vector/elegant-love-book-cover-template_11754300.htm#query=book%20cover&position=37&from_view=keyword&track=ais">Freepik</a>
                 [
-                    'name' => 'The Hobbit',
-                    'cover' => 'the_hobbit.jfif',
+                    'name' => 'A Love Story',
+                    'cover' => '5.svg',
                     'user_id' => 1,
                 ]
             ];
