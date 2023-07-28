@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ApiBookResource;
 use App\Models\Book;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
+
 
 class BookController extends Controller
 {
@@ -90,6 +94,9 @@ class BookController extends Controller
             ];
 
             if ($request->hasFile('cover')) {
+                $currentCover = $book->cover;
+                $this->deleteCover($currentCover);
+
                 $bookUpdatedData['cover'] = $this->uploadCover($request->file('cover'));
             }
 
@@ -119,7 +126,16 @@ class BookController extends Controller
 
             return $coverName;
         } catch (\Throwable $error) {
-            dd($error);
+            throw new Exception("File not created: $error", 1);
+        }
+    }
+
+    public function deleteCover($cover)
+    {
+        $filePath = "public/uploads/$cover";
+
+        if (!(Storage::delete($filePath))) {
+            throw new Exception("File not deleted.", 1);
         }
     }
 
