@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Home') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -28,15 +28,15 @@
                     <div class="flex">
                         <!-- Logo -->
                         <div class="shrink-0 flex items-center">
-                            <a href="{{ route('dashboard') }}">
+                            <a href="{{ route('books.index') }}">
                                 <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                             </a>
                         </div>
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            {{-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                {{ __('Dashboard') }}
+                            {{-- <x-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')">
+                                {{ __('Books Recorder') }}
                             </x-nav-link> --}}
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         @if (Route::has('login'))
                         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
                             @auth
-                            <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                            <a href="{{ url('/books') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Books Recorder</a>
                             @else
                             <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
                                 in</a>
@@ -74,8 +74,8 @@
             <!-- Responsive Navigation Menu -->
             <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
-                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-responsive-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')">
+                        {{ __('Books') }}
                     </x-responsive-nav-link>
                 </div>
 
@@ -115,13 +115,13 @@
     @endif
 
     <!-- Page Content -->
-    <main class="col-12 d-flex flex-column align-items-center justify-content-center fs-1 text">
+    <main class="col-12 d-flex flex-column align-items-center justify-content-center fs-1 text gap-3">
         <x-application-logo class="block w-auto h-28 fill-current text-gray-800" />
         <div class="text-4xl font-thin text-gray-600">
             Register your books inventory
         </div>
         <div class="text-3xl font-thin text-gray-600">with few information.</div>
-        <img src="../../../public/img/welcome-page/pc.png" alt="Web site snippet" class="w-full h-auto sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg" />
+        <img src="{{ asset('storage/uploads/snippet.png') }}" alt="Web site snippet" class="w-full h-auto sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg" />
         <div class="text-5xl font-thin text-gray-600">
             Welcome to Books Recorder!
         </div>
