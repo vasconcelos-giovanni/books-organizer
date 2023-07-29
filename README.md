@@ -3,7 +3,7 @@
 ## 📌 Project idea
 Books Recorder is a project that showcases a logged area for registering books in a user's inventory. The app's login system was built using Breeze, while the front-end boasts an elegant blend of Bootstrap and Blade.
 
-## 💡 Key Features:
+## 💡 Key Features
 ✅ CRUD functionality for effortless book registration and management.
 
 ✅ Individual user accounts with secured inventories.
@@ -20,7 +20,7 @@ Books Recorder is a project that showcases a logged area for registering books i
 ## 🏗️ Development Details
 The project follows the Model-View-Controller (MVC) architecture, ensuring a clean and organized codebase. I also made conventional commits to keep the development process well-documented and easy to understand.
 
-## 📚 My Learning Journey:
+## 📚 My Learning Journey
 During the development of Books Recorder, I gained invaluable experience in various aspects of web development:
 
 📌 Utilizing factories and database seeding for seamless testing data generation.
