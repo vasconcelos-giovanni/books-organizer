@@ -13,7 +13,7 @@
                         <div class="row p-2">
                             <div class="col-12 d-flex justify-content-end gap-2">
                                 <button type="submit" class="btn btn-outline-primary" id="save-btn">Save</button>
-                                <button type="button" class="btn btn-outline-danger" id="cancel-btn"><a href="{{ url('/') }}" class="text-reset" style="text-decoration:none;">Cancel</a></button>
+                                <button type="button" class="btn btn-outline-danger" id="cancel-btn"><a href="{{ route('books.index') }}" class="text-reset" style="text-decoration:none;">Cancel</a></button>
                             </div>
                         </div>
                         <div class="col-22">
