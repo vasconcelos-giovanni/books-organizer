@@ -29,6 +29,12 @@ During the development of Books Recorder, I gained invaluable experience in vari
 
 📌 Working with Breeze for authentication and authorization features.
 
+## 🎦 Video Showcase
+
+Check out the video on YouTube here:
+
+[![Books Recorder video showcase](https://i9.ytimg.com/vi_webp/U0lDdNpgReU/mq1.webp?sqp=CJS0q6YG-oaymwEmCMACELQB8quKqQMa8AEB-AH8CYAC0AWKAgwIABABGFkgWShZMA8=&rs=AOn4CLDlUgUM4dpS-mRDZ_g92agB2uXwIA)](https://www.youtube.com/watch?v=U0lDdNpgReU&list=PLaL6HBtGMgVNdMYMs3qNg8pZuFhaCAQ5b)
+
 ## 🖼️ Screenshots
 
 ![Home](/readme/img/screenshots/1.png)
@@ -37,7 +43,7 @@ During the development of Books Recorder, I gained invaluable experience in vari
 
 ![Book registering](/readme/img/screenshots/2.png)
 
-## :construction_worker: Credits
+## 👷 Credits
 
 *The Bike Guy* book cover image by <a href="https://www.freepik.com/free-vector/bike-guy-wattpad-book-cover_28596242.htm#query=book%20cover&position=4&from_view=keyword&track=ais">Freepik</a>
 
