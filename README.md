@@ -21,13 +21,19 @@ Books Recorder is a project that showcases a logged area for registering books i
 The project follows the Model-View-Controller (MVC) architecture, ensuring a clean and organized codebase. I also made conventional commits to keep the development process well-documented and easy to understand.
 
 ## 📚 My Learning Journey
-During the development of Books Recorder, I gained invaluable experience in various aspects of web development:
+In developing Books Recorder, I gained invaluable experience in various aspects of web development, including:
 
-📌 Utilizing factories and database seeding for seamless testing data generation.
+📌 Using factories and database seeding to generate seamless testing data. This allowed me to write more robust tests that ensured the application worked as expected.
 
-📌 Implementing file uploads for smooth document handling.
+📌 Implementing file uploads for smooth document handling. This involved using a variety of techniques to ensure that files were uploaded securely and stored efficiently.
 
-📌 Working with Breeze for authentication and authorization features.
+📌 Working with Breeze for authentication and authorization features. This allowed me to build a secure application that could be used by users with different levels of permissions.
+
+📌 Making database transactions for data integrity. This ensured that data was always consistent, even in the event of an error.
+
+📌 Using soft deletes for logging. This allowed me to track changes to data without deleting it permanently.
+
+These skills will benefit my future projects by helping me to build more robust, secure, and user-friendly applications.
 
 ## 🎦 Video Showcase
 
